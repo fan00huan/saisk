@@ -9,6 +9,5 @@
 		UPDATE M_USER SET NAME =
 		#{name}
 		WHERE ID = #{id}
-<!--ssss -->
 	</update>
 </mapper>

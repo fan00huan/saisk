@@ -34,10 +34,8 @@ implementation 'log4j:log4j:1.2.17'
 implementation 'org.apache.logging.log4j:log4j-core:2.17.2'
 implementation 'org.apache.logging.log4j:log4j-api:2.17.2'
 implementation 'org.apache.logging.log4j:log4j-web:2.17.2'
-// https://mvnrepository.com/artifact/org.slf4j/slf4j-api
-implementation 'org.slf4j:slf4j-api:1.8.0-beta4'
-// https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12
-testImplementation 'org.slf4j:slf4j-log4j12:1.8.0-beta4'
+implementation 'ch.qos.logback:logback-classic:1.3.0-alpha16'
+implementation 'ch.qos.logback:logback-core:1.3.0-alpha15'
 
 
 
@@ -54,6 +52,7 @@ implementation 'com.mchange:c3p0:0.9.5.5'
 // Others:qw
 runtimeOnly 'org.aspectj:aspectjweaver:1.9.9.1'
 
+implementation 'net.lingala.zip4j:zip4j:2.10.0'
 implementation 'com.ibm.icu:icu4j:71.1'
 implementation 'org.apache.velocity:velocity-engine-core:2.3'
 

@@ -19,7 +19,7 @@ import jp.co.csj.backsys.batch.service.Sv00101;
 @Service
 public class Bt001 extends AbsBatch {
 
-    // チェッククラスxx
+    // チェッククラスxxfh
 	@Autowired
     private Ck001 ck001;
 	@Autowired

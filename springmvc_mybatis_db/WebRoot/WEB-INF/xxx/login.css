@@ -1,0 +1,59 @@
+* { 
+    margin: 0;
+    padding: 0;
+}
+.w {
+     width : 1100px;
+     margin: 35px auto; 
+}
+.clearfix::before,
+.clearfix::after {
+    content:"" ;
+    display: table;
+}
+.clearfix::after{
+    clear: both;
+}
+.clearfix{
+    *zoom: 1;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: rgb(250, 246, 246);
+}
+body {
+    background-color: rgb(113,113,113);
+    font-family: 'microsoft yahei', Arial, sans-serif;
+    font-size: 14px;
+    color: rgb(250, 246, 246);
+}
+.header {
+    width: 185px; 
+    height: 21px;
+}
+.login {
+    height: 800px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+
+}
+.login h3 {
+    height: 42px;
+    border-bottom: 1px solid #ccc; 
+    line-height: 42px;
+    padding: 0 10px;
+    font-weight: 400;
+    font-size: 18px;
+}
+.registerarea {
+    float: right;
+    font-size: 14px;
+
+}
+.registerarea a{
+    border-bottom: 2px solid pink;
+    color: pink;
+}

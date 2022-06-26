@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+    http://www.springframework.org/schema/task
+    http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+
+	<task:executor id="executor" pool-size="10" />
+	<task:scheduler id="scheduler" pool-size="5" />
+	<task:annotation-driven executor="executor"
+		scheduler="scheduler" />
+
+	<bean id="Batch0001Task" class="cn.itcast.ssm.batch.Batch0001Task"></bean>
+<!-- 	<task:scheduled ref="myTask" method="print" cron="1 1 1 1 * ?"/> -->
+
+
+<!--	 cron格式:
+		[秒] [分] [時] [日] [月] [周] [年] 2/5 2から、後に5ごとに1回実行する * 表示毎回 - 範囲を表す -->
+<!-- 	<task:scheduled-tasks> -->
+
+<!-- 		Tomcat起動10秒後にバッチ実行、実行完了時点から5秒後に次のバッチを実行する。 -->
+<!-- 		<task:scheduled ref="Batch0001Task" method="runInterval" -->
+<!-- 			initial-delay="1000" fixed-delay="1000" /> -->
+
+<!-- 		毎日11:50に下記タスクを実行する" -->
+<!-- 		<task:scheduled ref="Batch0001Task" method="runBackup" -->
+<!-- 			cron="0 50 11 * * ?" /> -->
+
+<!-- 		<task:scheduled ref="Batch0001Task" method="runDelete" -->
+<!-- 			cron="0 12 16 * * ?" /> -->
+
+<!-- 	</task:scheduled-tasks> -->
+
+</beans>

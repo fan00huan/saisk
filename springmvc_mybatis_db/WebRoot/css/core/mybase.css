@@ -1,0 +1,18 @@
+.item-datapicker{
+	display : inline-block;
+}
+
+.item-datapicker>input{
+	border: 1px solid #676767;
+    width: 120px;
+    vertical-align: middle;
+}
+
+.item-datapicker>img{
+	vertical-align: middle;
+}
+
+.item-datapicker>img:hover{
+	cursor: pointer;
+}
+

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.itcast.ssm.mapper.original.TOrderMapper">
+  <resultMap id="BaseResultMap" type="cn.itcast.ssm.po.original.TOrder">
+    <id column="orders_no" jdbcType="CHAR" property="ordersNo" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="delete_flg" jdbcType="CHAR" property="deleteFlg" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user_id" jdbcType="VARCHAR" property="createUserId" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user_id" jdbcType="VARCHAR" property="updateUserId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    orders_no, user_id, createtime, note, delete_flg, create_time, create_user_id, update_time, 
+    update_user_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_order
+    where orders_no = #{ordersNo,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_order
+    where orders_no = #{ordersNo,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.itcast.ssm.po.original.TOrder">
+    insert into t_order (orders_no, user_id, createtime, 
+      note, delete_flg, create_time, 
+      create_user_id, update_time, update_user_id
+      )
+    values (#{ordersNo,jdbcType=CHAR}, #{userId,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{note,jdbcType=VARCHAR}, #{deleteFlg,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUserId,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUserId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.itcast.ssm.po.original.TOrder">
+    insert into t_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ordersNo != null">
+        orders_no,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="deleteFlg != null">
+        delete_flg,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="createUserId != null">
+        create_user_id,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="updateUserId != null">
+        update_user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ordersNo != null">
+        #{ordersNo,jdbcType=CHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFlg != null">
+        #{deleteFlg,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null">
+        #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null">
+        #{updateUserId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.itcast.ssm.po.original.TOrder">
+    update t_order
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFlg != null">
+        delete_flg = #{deleteFlg,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null">
+        create_user_id = #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null">
+        update_user_id = #{updateUserId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where orders_no = #{ordersNo,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.itcast.ssm.po.original.TOrder">
+    update t_order
+    set user_id = #{userId,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      note = #{note,jdbcType=VARCHAR},
+      delete_flg = #{deleteFlg,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user_id = #{createUserId,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user_id = #{updateUserId,jdbcType=VARCHAR}
+    where orders_no = #{ordersNo,jdbcType=CHAR}
+  </update>
+</mapper>

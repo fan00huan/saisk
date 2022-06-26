@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.itcast.ssm.mapper.custom.CustomTItemMapper">
+
+
+  <resultMap id="BaseResultMap" type="cn.itcast.ssm.po.original.TItem">
+    <id column="ITEM_ID" jdbcType="VARCHAR" property="itemId" />
+    <result column="ITEM_NAME" jdbcType="VARCHAR" property="itemName" />
+    <result column="ITEM_PRICE" jdbcType="DECIMAL" property="itemPrice" />
+    <result column="ITEM_DETAIL" jdbcType="VARCHAR" property="itemDetail" />
+    <result column="ITEM_PIC" jdbcType="VARCHAR" property="itemPic" />
+    <result column="ITEM_PRODUCT_DATE" jdbcType="TIMESTAMP" property="itemProductDate" />
+    <result column="ITEM_TYPE" jdbcType="CHAR" property="itemType" />
+    <result column="DELETE_FLG" jdbcType="CHAR" property="deleteFlg" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CREATE_USER_ID" jdbcType="VARCHAR" property="createUserId" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="UPDATE_USER_ID" jdbcType="VARCHAR" property="updateUserId" />
+  </resultMap>
+
+  	<select id="findItemList" parameterType="cn.itcast.ssm.vo.VoItem"
+  		 resultMap="BaseResultMap">
+  		SELECT * FROM t_item
+  		<where>
+   			<if test="itemName!=null and itemName != ''">
+   				item_name LIKE '%${itemName}%'
+   			</if>
+
+   			<if test="itemType!=null and itemType != ''">
+   				and item_type = '${itemType}'
+   			</if>
+  		</where>
+  	</select>
+
+	<select id="getItemMapLst" resultType="map" parameterType="map">
+		SELECT
+		*
+		FROM
+		t_item
+		WHERE 1=1
+		<if test="CD_CENTER != null">
+			AND CD_CENTER = #{KEY1}
+		</if>
+	</select>
+
+
+</mapper>

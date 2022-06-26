@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.itcast.ssm.mapper.original.TItemMapper">
+  <resultMap id="BaseResultMap" type="cn.itcast.ssm.po.original.TItem">
+    <id column="item_id" jdbcType="VARCHAR" property="itemId" />
+    <result column="item_name" jdbcType="VARCHAR" property="itemName" />
+    <result column="item_price" jdbcType="DECIMAL" property="itemPrice" />
+    <result column="item_detail" jdbcType="VARCHAR" property="itemDetail" />
+    <result column="item_pic" jdbcType="VARCHAR" property="itemPic" />
+    <result column="item_product_date" jdbcType="TIMESTAMP" property="itemProductDate" />
+    <result column="item_type" jdbcType="CHAR" property="itemType" />
+    <result column="delete_flg" jdbcType="CHAR" property="deleteFlg" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user_id" jdbcType="VARCHAR" property="createUserId" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user_id" jdbcType="VARCHAR" property="updateUserId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    item_id, item_name, item_price, item_detail, item_pic, item_product_date, item_type, 
+    delete_flg, create_time, create_user_id, update_time, update_user_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_item
+    where item_id = #{itemId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_item
+    where item_id = #{itemId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.itcast.ssm.po.original.TItem">
+    insert into t_item (item_id, item_name, item_price, 
+      item_detail, item_pic, item_product_date, 
+      item_type, delete_flg, create_time, 
+      create_user_id, update_time, update_user_id
+      )
+    values (#{itemId,jdbcType=VARCHAR}, #{itemName,jdbcType=VARCHAR}, #{itemPrice,jdbcType=DECIMAL}, 
+      #{itemDetail,jdbcType=VARCHAR}, #{itemPic,jdbcType=VARCHAR}, #{itemProductDate,jdbcType=TIMESTAMP}, 
+      #{itemType,jdbcType=CHAR}, #{deleteFlg,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUserId,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUserId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.itcast.ssm.po.original.TItem">
+    insert into t_item
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="itemId != null">
+        item_id,
+      </if>
+      <if test="itemName != null">
+        item_name,
+      </if>
+      <if test="itemPrice != null">
+        item_price,
+      </if>
+      <if test="itemDetail != null">
+        item_detail,
+      </if>
+      <if test="itemPic != null">
+        item_pic,
+      </if>
+      <if test="itemProductDate != null">
+        item_product_date,
+      </if>
+      <if test="itemType != null">
+        item_type,
+      </if>
+      <if test="deleteFlg != null">
+        delete_flg,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="createUserId != null">
+        create_user_id,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="updateUserId != null">
+        update_user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="itemId != null">
+        #{itemId,jdbcType=VARCHAR},
+      </if>
+      <if test="itemName != null">
+        #{itemName,jdbcType=VARCHAR},
+      </if>
+      <if test="itemPrice != null">
+        #{itemPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="itemDetail != null">
+        #{itemDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="itemPic != null">
+        #{itemPic,jdbcType=VARCHAR},
+      </if>
+      <if test="itemProductDate != null">
+        #{itemProductDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="itemType != null">
+        #{itemType,jdbcType=CHAR},
+      </if>
+      <if test="deleteFlg != null">
+        #{deleteFlg,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null">
+        #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null">
+        #{updateUserId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.itcast.ssm.po.original.TItem">
+    update t_item
+    <set>
+      <if test="itemName != null">
+        item_name = #{itemName,jdbcType=VARCHAR},
+      </if>
+      <if test="itemPrice != null">
+        item_price = #{itemPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="itemDetail != null">
+        item_detail = #{itemDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="itemPic != null">
+        item_pic = #{itemPic,jdbcType=VARCHAR},
+      </if>
+      <if test="itemProductDate != null">
+        item_product_date = #{itemProductDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="itemType != null">
+        item_type = #{itemType,jdbcType=CHAR},
+      </if>
+      <if test="deleteFlg != null">
+        delete_flg = #{deleteFlg,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null">
+        create_user_id = #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null">
+        update_user_id = #{updateUserId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where item_id = #{itemId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.itcast.ssm.po.original.TItem">
+    update t_item
+    set item_name = #{itemName,jdbcType=VARCHAR},
+      item_price = #{itemPrice,jdbcType=DECIMAL},
+      item_detail = #{itemDetail,jdbcType=VARCHAR},
+      item_pic = #{itemPic,jdbcType=VARCHAR},
+      item_product_date = #{itemProductDate,jdbcType=TIMESTAMP},
+      item_type = #{itemType,jdbcType=CHAR},
+      delete_flg = #{deleteFlg,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user_id = #{createUserId,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user_id = #{updateUserId,jdbcType=VARCHAR}
+    where item_id = #{itemId,jdbcType=VARCHAR}
+  </update>
+</mapper>

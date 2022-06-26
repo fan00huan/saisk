@@ -1,0 +1,16 @@
+svn地址
+svn+ssh://dbtoolsstudy01@svn.code.sf.net/p/spring20190707/svn/
+
+用户名
+dbtoolsstudy01
+密码
+Springmvc1!
+
+下载springmvc_mybatis_db代码
+
+1.建表
+2.登陆数据
+3.数据库不是postgre的话，更改db.properties的数据库连接信息
+4.启动TOMCAT
+5.输入下面地址
+http://localhost:8080/springmvc_mybatis_db/items/queryItems.action

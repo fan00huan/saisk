@@ -38,7 +38,7 @@ public class Bt001 extends AbsBatch {
 		ApplicationContext context = new FileSystemXmlApplicationContext(
 				"classpath:spring/SprapplicationContext.xml");
 		
-        context.getBean("Bt001")
+        context.getBean("Bt001");
     }
 
     /**

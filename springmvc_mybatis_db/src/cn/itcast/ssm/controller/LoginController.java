@@ -1,5 +1,8 @@
 package cn.itcast.ssm.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -24,7 +27,7 @@ public class LoginController {
 
 	// 登陆
 	@RequestMapping("/login")
-	public String login(Model model, HttpSession session, String username, String password)
+	public String login(HttpServletRequest request,Model model, HttpSession session,String sex, String username, String password)
 			throws Exception {
 
 	    if ((username == null || username.length() == 0)
@@ -36,8 +39,26 @@ public class LoginController {
 		TUser user = userService.findUser(username);
 		if (user == null || !password.equals(user.getPassword())) {
 
-		    model.addAttribute("username", username);
+		    model.addAttribute("username1", username);
+		    model.addAttribute("sex1", sex);
 			model.addAttribute("error", "用户名和密码不一致");
+			
+			List<Rec> rLst = new ArrayList<Rec>();
+			
+			
+			for(int i =0; i<30; i++) {
+				Rec r = new Rec();r.setName("tanaka");r.setDate("202206"+String.format("%02d",i+1));
+				rLst.add(r);
+			}
+
+			
+			// FIND DB
+			// rLst
+			
+			
+			model.addAttribute("recLst", rLst);
+			
+			
 		     // 清除session
 	        session.invalidate();
 			return "login";

@@ -42,8 +42,14 @@ function register() {
 
 <!-- style="background-color:#d000fe;" -->
 
-用户账号：<input id="id_username" class="mytext" style="background-color:#ea9de4;" type="text" name="username"value="${username}" /><br/>
+用户账号：<input id="id_username" class="mytext" style="background-color:#ea9de4;" type="text" name="username"value="${username1}" /><br/>
 用户密码 ：<input id="id_password" type="password" name="password" /><br/>
+
+ <input type="radio" name="sex" value="1"
+ <c:if test="${sex1=='1' }">checked </c:if>>manxxx
+ 
+ <input type="radio" name="sex" value="0"
+ <c:if test="${sex1=='0' }">checked </c:if>>woman<br>
 
 <input type="submit" class="blue-btn" value="登陆"/>
 <input type="button" value="清除" onclick="fnclear()"/>
@@ -55,7 +61,36 @@ function register() {
 	<br/>${error}
 </c:if>
 
+
+
+
+
+	商品列表：
+		<table width="100%" border=1>
+				<tr>
+					<th>名称</th>
+					<th>日期</th>
+					<th>date</th>
+				</tr>
+				
+				<c:forEach items="${recLst}" var="o" varStatus="status">
+					<tr>
+						<td>${o.name }</td>
+						<td>${o.date }</td>
+						<td><input type="text" name="xxxx${status.count}" }></td>
+					</tr>
+				</c:forEach>
+
+		</table>
+			
+			
+			
+			
 </form>
+
+
+			
+			
 </body>
 </html>
 
